@@ -10,7 +10,7 @@ for i in sys.argv[1:]:
     newList.append(word)
     words.remove(word)
 
-print(', '.join(newList))
+print(' '.join(newList))
     
 
 
