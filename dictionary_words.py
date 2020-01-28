@@ -1,24 +1,38 @@
 import sys
 import random
 
-number = sys.argv[1:]
+import time as t
 
-words = list()
-outPutList = list()
+start_time = t.time()
 
-with open('words.txt','r') as f:
-    for line in f:
-        for word in line.split():
-           word = word.rstrip()
-           words.append(word)
+def randomwords():
+
+    number = sys.argv[1:]
+
+    words = list()
+    outPutList = list()
+
+    with open('words.txt','r') as f:
+        for line in f:
+            for word in line.split():
+                word = word.rstrip()
+                words.append(word)
 
 
-for i in range(int(number[0])):
-    randomNumber = random.randint(0,len(words))
-    outPutList.append(words[randomNumber])
-    words.remove(words[randomNumber])
+    for i in range(int(number[0])):
+        randomNumber = random.randint(0,len(words))
+        outPutList.append(words[randomNumber])
+        words.remove(words[randomNumber])
 
-print(' '.join(outPutList))
+    print(' '.join(outPutList))
+
+end_time = t.time()
+
+total_run_time = end_time - start_time
+
+print(f"The program ran for {total_run_time} seconds")
+
+
 
 
 
