@@ -12,11 +12,9 @@ def randomwords():
     words = list()
     outPutList = list()
 
-    with open('words.txt','r') as f:
-        for line in f:
-            for word in line.split():
-                word = word.rstrip()
-                words.append(word)
+    words = open('words.txt','r')
+    words = ''.join(words.readlines()).split()
+    
 
 
     for i in range(int(number[0])):
@@ -26,11 +24,11 @@ def randomwords():
 
     print(' '.join(outPutList))
 
+randomwords()
+    
 end_time = t.time()
 
-total_run_time = end_time - start_time
-
-print(f"The program ran for {total_run_time} seconds")
+print(f"The program ran for {end_time - start_time} seconds")
 
 
 
