@@ -31,6 +31,8 @@ def frequency(word):
     
     if word in histograms:
         print(f'Word: {word}, Count: {histograms[word]}') 
+    else:
+        print(f'{word} not found')
 
 end_time = t.time()
     
