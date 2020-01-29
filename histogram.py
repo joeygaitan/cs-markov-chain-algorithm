@@ -30,7 +30,7 @@ def frequency(word):
     histograms = histogram(words)
     
     if word in histograms:
-        print(f'Word: {word}, Count: {histograms[word]}') 
+        print(f'Word Found: {word}, Word Count: {histograms[word]}') 
     else:
         print(f'{word} not found')
 
