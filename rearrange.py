@@ -1,16 +1,18 @@
 import sys
 import random  
 
-newList = []
 
-words = sys.argv[1:]
+def rearrange():
+    newList = []
 
-for i in sys.argv[1:]:
-    word = random.choice(words)
-    newList.append(word)
-    words.remove(word)
+    words = sys.argv[1:]
 
-print(' '.join(newList))
+    for i in sys.argv[1:]:
+        word = random.choice(words)
+        newList.append(word)
+        words.remove(word)
+
+    print(' '.join(newList))
     
 
 

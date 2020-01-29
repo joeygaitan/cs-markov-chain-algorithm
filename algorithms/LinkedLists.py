@@ -18,7 +18,8 @@ class linkedList:
 
         print(current.data)
         print(current.next)
-        print(current.data)
+        
+        
         
 
 

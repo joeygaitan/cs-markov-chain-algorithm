@@ -34,8 +34,9 @@ def frequency(word):
 
 end_time = t.time()
     
-print(f"The program ran for {end_time - start_time} seconds")
 
 # print(histogram(words))
 
 print(frequency(word[0]))
+
+print(f"The program ran for {end_time - start_time} seconds")
