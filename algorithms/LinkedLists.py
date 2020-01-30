@@ -16,10 +16,9 @@ class linkedList:
     def displayAll(self):
         current = self.head
 
-        print(current.data)
-        print(current.next)
-        
-        
+        while(current):
+            print(current.data)
+            current = current.next
         
 
 
