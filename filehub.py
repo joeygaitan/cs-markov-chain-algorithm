@@ -14,5 +14,7 @@ def choicePicker():
 class algoPicker:
     def __init__(self):
         
-choicePicker()
-
+    def choicePicker(self):
+        choice = True 
+        while(choice):
+            input("Please")
