@@ -10,7 +10,21 @@ words = ''.join(words.readlines()).split()
 
 word = sys.argv[1:]
 
-def histogram(words):
+def list_histogram(words):
+    histo = []
+
+    for word in words:
+        word = word.rstrip()
+        if len(histo) == 0:
+            histo.append([word,1])
+        else:
+            for element in histo:
+                if element[0] == word:
+                    element[1] += 1
+                else:
+                    histo.append([word,1])
+
+def dict_histogram(words):
     histo = {'histoCounter':0}
 
     for word in words:
@@ -27,7 +41,7 @@ def unique_word(count):
     return (f'the amount of unique words are {count}')
 
 def frequency(word):
-    histograms = histogram(words)
+    histograms = dict_histogram(words)
     
     if word in histograms:
         print(f'Word Found: {word}, Word Count: {histograms[word]}') 
