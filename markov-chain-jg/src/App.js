@@ -1,5 +1,6 @@
-import React from 'react';
-import { BrowserRouter,Switch,Route } from 'react-router-dom'
+import React, {Component} from 'react';
+import { BrowserRouter,Switch,Route } from 'react-router-dom';
+import './App.css';
 
 class App extends Component {
   constructor(props){
@@ -11,7 +12,7 @@ class App extends Component {
   }
 
   componentDidMount = async () => {
-    
+
   }
 
   getBlogs = () => {
@@ -21,7 +22,7 @@ class App extends Component {
   render() {
     return (
       <div>
-
+        <h1 className='stuff'>hello</h1>
       </div>
     );
   }

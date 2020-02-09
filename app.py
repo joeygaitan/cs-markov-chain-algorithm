@@ -16,20 +16,29 @@ def note_repr(key):
     }
 
 
-@app.route("/", methods=['GET', 'POST'])
+@app.route("/", methods=['GET'])
 def notes_list():
     """
     List or create notes.
     """
-    if request.method == 'POST':
-        note = str(request.data.get('text', ''))
-        idx = max(notes.keys()) + 1
-        notes[idx] = note
-        return note_repr(idx), status.HTTP_201_CREATED
-
     # request.method == 'GET'
     return [note_repr(idx) for idx in sorted(notes.keys())]
 
+@app.route("/int:key", methods=['GET'])
+def one_note(key):
+    
+    # request.method == 'GET'
+    if key not in notes:
+        raise exceptions.NotFound()
+    return note_repr(key)
+
+@app.route("/int:key", methods=['POST'])
+def add_note(key):
+        if request.method == 'POST':
+            note = str(request.data.get('text', ''))
+            idx = max(notes.keys()) + 1
+            notes[idx] = note
+        return note_repr(idx), status.HTTP_201_CREATED
 
 @app.route("/<int:key>/", methods=['GET', 'PUT', 'DELETE'])
 def notes_detail(key):
@@ -44,11 +53,7 @@ def notes_detail(key):
     elif request.method == 'DELETE':
         notes.pop(key, None)
         return '', status.HTTP_204_NO_CONTENT
-
-    # request.method == 'GET'
-    if key not in notes:
-        raise exceptions.NotFound()
-    return note_repr(key)
+    
 
 
 if __name__ == "__main__":
