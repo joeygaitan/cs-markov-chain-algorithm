@@ -24,9 +24,10 @@ class linkedList:
     
     def displayOne(self,index):
         current = self.head
-
-        if current.size < index:
-            print("out of scope")
+        
+        if self.size < index:
+            print("Out of scope")
+            return   
         while(current.next != None):
             if current.data == index:
                 print(current.data)
@@ -47,8 +48,8 @@ class linkedList:
         
         self.size += 1
     
-    def insertAt(self,index,data):
-        node = Node(data)
+    # def insertAt(self,index,data):
+    #     node = Node(data)
 
         
 
@@ -66,6 +67,8 @@ ll.addLast(1000)
 
 print(ll.size)
 
+print('here',ll.displayOne(1))
+ll.displayOne(6)
 
 ll.displayAll()
 
