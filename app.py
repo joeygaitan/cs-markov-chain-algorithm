@@ -53,6 +53,22 @@ def notes_detail(key):
     elif request.method == 'DELETE':
         notes.pop(key, None)
         return '', status.HTTP_204_NO_CONTENT
+
+
+@app.route("/<int:key>/", methods=['PUT'])
+def change_note(key):
+    if request.method == 'PUT':
+        note = str(request.data.get('text', ''))
+        notes[key] = note
+        return note_repr(key)
+
+@app.route("/<int:key>/", methods=['DELETE'])
+def delete_note(key):
+        if request.method == 'DELETE':
+            notes.pop(key, None)
+            return '', status.HTTP_204_NO_CONTENT
+
+
     
 
 
