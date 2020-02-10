@@ -1,7 +1,9 @@
 from flask import request, url_for
 from flask_api import FlaskAPI, status, exceptions
+from flask_cors import CORS
 
 app = FlaskAPI(__name__)
+CORS(app)
 
 notes = {
     0: 'do the shopping',

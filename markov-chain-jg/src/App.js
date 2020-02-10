@@ -7,22 +7,29 @@ class App extends Component {
     super(props)
 
     this.state = {
-
+      quotes:[]
     }
   }
 
   componentDidMount = async () => {
-
+    this.getQuotes()
   }
 
-  getBlogs = () => {
-
+  getQuotes = async () => {
+    return fetch('http://localhost:5000')
+    .then((response) => {
+      return response.json();
+    })
+    .then((myJson) => {
+      console.log(myJson)
+    })
   }
 
   render() {
+     
     return (
       <div>
-        <h1 className='stuff'>hello</h1>
+        <h1>hello</h1>
       </div>
     );
   }
