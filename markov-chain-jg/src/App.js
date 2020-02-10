@@ -16,7 +16,7 @@ class App extends Component {
   }
 
   getQuotes = async () => {
-    return fetch('http://localhost:5000')
+    return fetch('https://markov-chain-j-g.herokuapp.com/')
     .then((response) => {
       return response.json();
     })
