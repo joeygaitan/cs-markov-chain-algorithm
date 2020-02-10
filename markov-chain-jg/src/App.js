@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { BrowserRouter,Switch,Route } from 'react-router-dom';
-import './App.css';
+import './App.css'
 
 class App extends Component {
   constructor(props){
@@ -28,7 +28,7 @@ class App extends Component {
   render() {
      
     return (
-      <div>
+      <div className='center-screen'>
         <h1>hello</h1>
       </div>
     );

@@ -1,7 +1,8 @@
-.stuff {
-    height: 400px;
-    width: 800px;
-    background: red;
-    line-height: 400px;
+.center-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-}
+    min-height: 100vh;
+  }
