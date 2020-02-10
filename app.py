@@ -71,8 +71,5 @@ def delete_note(key):
             return '', status.HTTP_204_NO_CONTENT
 
 
-    
-
-
 if __name__ == "__main__":
     app.run(debug=True)
