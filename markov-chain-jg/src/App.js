@@ -29,7 +29,7 @@ class App extends Component {
      
     return (
       <div className='center-screen'>
-        <h1>hello</h1>
+        <h1>hello friend</h1>
       </div>
     );
   }

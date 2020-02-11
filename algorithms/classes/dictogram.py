@@ -1,0 +1,33 @@
+class Dictogram(dict):
+    def __init__(self, word_list=None):
+        self.types = 0  # Count of distinct word types in this histogram
+        self.tokens = 0  # Total count of all word tokens in this histogram
+        # Count words in given list, if any
+        super().__init__()
+        if word_list is not None:
+            for word in word_list:
+                self.add_count(word)
+
+    def add_count(self, word, count=1):
+        """Increase frequency count of given word by given count amount."""
+        # TODO: Increase word frequency by count
+        
+    def frequency(self, word):
+        """Return frequency count of given word, or 0 if word is not found."""
+        # TODO: Retrieve word frequency count
+
+    def sample(self):
+        """Return a word from this histogram, randomly sampled by weighting
+        each word's probability of being chosen by its observed frequency."""
+        # TODO: Randomly choose a word based on its frequency in this histogram
+
+    # def build_dictogram(self,words):
+    #     for word in words:
+    #         word = word.rstrip()
+    #         if word in self.dictionary:
+    #             self.dictionary[word] += 1
+    #         else:
+    #             self.dictionary['dictogramCounter'] += 1
+    #             self.dictionary[word] = 1
+    #     # print(unique_word(histo['dictogramCounter']))
+    #     return self.dictionary

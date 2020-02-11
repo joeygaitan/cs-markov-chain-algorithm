@@ -3,7 +3,6 @@ arr = [1,4,6,1,4,6]
 def sorting(arr):
     
     for (i, number) in enumerate(arr):
-        currenti = 0
         if len(arr) -1 == i:
             return arr
         else:
