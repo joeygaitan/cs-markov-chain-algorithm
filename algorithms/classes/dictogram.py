@@ -32,6 +32,7 @@ class Dictogram(dict):
                 return word
             else:
                 start = end
+        return 'Not Found :/'
 
     # def build_dictogram(self,words):
     #     for word in words:
