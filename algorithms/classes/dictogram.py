@@ -33,14 +33,3 @@ class Dictogram(dict):
             else:
                 start = end
         return 'Not Found :/'
-
-    # def build_dictogram(self,words):
-    #     for word in words:
-    #         word = word.rstrip()
-    #         if word in self.dictionary:
-    #             self.dictionary[word] += 1
-    #         else:
-    #             self.dictionary['dictogramCounter'] += 1
-    #             self.dictionary[word] = 1
-    #     # print(unique_word(histo['dictogramCounter']))
-    #     return self.dictionary
