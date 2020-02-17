@@ -29,8 +29,7 @@ def test_entries():
 
 def test_contains():
     fish_words = ['one', 'fish', 'two', 'fish', 'red', 'fish', 'blue', 'fish']
-    fish_list = [('one', 1), ('fish', 4), ('two', 1), ('red', 1), ('blue', 1)]
-    fish_dict = {'one': 1, 'fish': 4, 'two': 1, 'red': 1, 'blue': 1}
+
     histogram = Dictogram(fish_words)
     # All of these words should be found
     for word in fish_words:
