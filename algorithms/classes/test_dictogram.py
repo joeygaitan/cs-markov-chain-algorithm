@@ -27,25 +27,30 @@ def test_entries():
     assert len(listogram) == 5
     case.assertCountEqual(listogram, fish_list)  # Ignore item order
 
-    # def test_contains(self):
-    #     histogram = Dictogram(self.fish_words)
-    #     # All of these words should be found
-    #     for word in self.fish_words:
-    #         assert word in histogram
-    #     # None of these words should be found
-    #     for word in ('fishy', 'food'):
-    #         assert word not in histogram
+def test_contains():
+    fish_words = ['one', 'fish', 'two', 'fish', 'red', 'fish', 'blue', 'fish']
+    fish_list = [('one', 1), ('fish', 4), ('two', 1), ('red', 1), ('blue', 1)]
+    fish_dict = {'one': 1, 'fish': 4, 'two': 1, 'red': 1, 'blue': 1}
+    histogram = Dictogram(fish_words)
+    # All of these words should be found
+    for word in fish_words:
+        assert word in histogram
+    # None of these words should be found
+    for word in ('fishy', 'food'):
+        assert word not in histogram
 
-    # def test_frequency(self):
-    #     histogram = Dictogram(self.fish_words)
-    #     # Verify frequency count of all words
-    #     assert histogram.frequency('one') == 1
-    #     assert histogram.frequency('two') == 1
-    #     assert histogram.frequency('red') == 1
-    #     assert histogram.frequency('blue') == 1
-    #     assert histogram.frequency('fish') == 4
-    #     # Verify frequency count of unseen words
-    #     assert histogram.frequency('food') == 0
+def test_frequency():
+    fish_words = ['one', 'fish', 'two', 'fish', 'red', 'fish', 'blue', 'fish']
+
+    histogram = Dictogram(fish_words)
+    # Verify frequency count of all words
+    assert histogram.frequency('one') == 1
+    assert histogram.frequency('two') == 1
+    assert histogram.frequency('red') == 1
+    assert histogram.frequency('blue') == 1
+    assert histogram.frequency('fish') == 4
+    # Verify frequency count of unseen words
+    assert histogram.frequency('food') == 0
 
     # def test_add_count(self):
     #     histogram = Dictogram(self.fish_words)

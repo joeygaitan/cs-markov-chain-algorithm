@@ -23,7 +23,7 @@ class MarkovChain:
                 #get the histogram for that word in the chain
                 histogram = markov_chain[current_word]
                 #add to count
-                histogram.dictionary_histogram[next_word] = histogram.get(next_word, 0) + 1
+                histogram[next_word] = histogram.get(next_word, 0) + 1
             else: #first entry
                 markov_chain[current_word] = Dictogram([next_word])
 
@@ -34,11 +34,12 @@ class MarkovChain:
         pass
 
     def print_chain(self):
+        # dictionary of dictionaries
         for word, histogram in self.markov_chain.items():
-            print(word, histogram.dictionary_histogram)
+            print(word, histogram)
 
 
 
 markov_chain = MarkovChain(["one", "fish", "two", "fish", "red", "fish", "blue", "fish"])
 markov_chain.print_chain()
-print(markov_chain.walk(10))
+# print(markov_chain.walk(10))
