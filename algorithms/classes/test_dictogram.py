@@ -1,5 +1,7 @@
 #!python
 
+import unittest
+
 from dictogram import Dictogram
 # import unittest
 # Python 2 and 3 compatibility: unittest module renamed this assertion method
@@ -7,21 +9,23 @@ from dictogram import Dictogram
 
     # Test fixtures: known inputs and their expected results
 
-class Test:
-    def __init__(self):
-        self.fish_words = ['one', 'fish', 'two', 'fish', 'red', 'fish', 'blue', 'fish']
-        self.fish_list = [('one', 1), ('fish', 4), ('two', 1), ('red', 1), ('blue', 1)]
-        self.fish_dict = {'one': 1, 'fish': 4, 'two': 1, 'red': 1, 'blue': 1}
 
-    def test_entries(self):
-        dictogram = Dictogram(self.fish_words)
-        # Verify histogram as dictionary of entries like {word: count}
-        assert len(dictogram) == 5
-        self.assertCountEqual(dictogram, self.fish_dict)  # Ignore item order
-        # Verify histogram as list of entries like [(word, count)]
-        listogram = dictogram.items()
-        assert len(listogram) == 5
-        self.assertCountEqual(listogram, self.fish_list)  # Ignore item order
+
+
+def test_entries():
+    fish_words = ['one', 'fish', 'two', 'fish', 'red', 'fish', 'blue', 'fish']
+    fish_list = [('one', 1), ('fish', 4), ('two', 1), ('red', 1), ('blue', 1)]
+    fish_dict = {'one': 1, 'fish': 4, 'two': 1, 'red': 1, 'blue': 1}
+
+    case = unittest.TestCase()
+    dictogram = Dictogram(fish_words)
+    # Verify histogram as dictionary of entries like {word: count}
+    assert len(dictogram) == 5
+    case.assertCountEqual(dictogram, fish_dict)  # Ignore item order
+    # Verify histogram as list of entries like [(word, count)]
+    listogram = dictogram.items()
+    assert len(listogram) == 5
+    case.assertCountEqual(listogram, fish_list)  # Ignore item order
 
     # def test_contains(self):
     #     histogram = Dictogram(self.fish_words)
@@ -99,7 +103,3 @@ class Test:
     #         lower_bound = observed_freq * 0.9  # 10% below = 90% = 0.9
     #         upper_bound = observed_freq * 1.1  # 10% above = 110% = 1.1
     #         assert lower_bound <= sampled_freq <= upper_bound
-
-
-if __name__ == '__main__':
-    
