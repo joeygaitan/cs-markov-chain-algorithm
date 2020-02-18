@@ -8,15 +8,15 @@ import unittest
 
 def test_entries():
     fish_words = ['one', 'fish', 'two', 'fish', 'red', 'fish', 'blue', 'fish']
-    fish_list = [('one', 1), ('fish', 4), ('two', 1), ('red', 1), ('blue', 1)]
+    fish_list = [['one', 1], ['fish', 4], ['two', 1], ['red', 1], ['blue', 1]]
     fish_dict = {'one': 1, 'fish': 4, 'two': 1, 'red': 1, 'blue': 1}
     # NOTE: This test assumes Listogram is implemented as a list of tuples,
     # but if you implement it as a list of lists (or a list of count-lists)
     # you should modify the fish_list fixture above and/or this test (only)
-    listogram = Listogram(fish_words)
     case = unittest.TestCase()
+    listogram = Listogram(fish_words)
     # Verify histogram as list of entries like [(word, count)]
-    print(listogram)
+    print(listogram,fish_list)
     assert len(listogram) == 5
     case.assertCountEqual(listogram, fish_list)  # Ignore item order
     # Verify histogram as dictionary of entries like {word: count}
