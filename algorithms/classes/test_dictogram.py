@@ -51,24 +51,26 @@ def test_frequency():
     # Verify frequency count of unseen words
     assert histogram.frequency('food') == 0
 
-    # def test_add_count(self):
-    #     histogram = Dictogram(self.fish_words)
-    #     # Add more words to update frequency counts
-    #     histogram.add_count('two', 2)
-    #     histogram.add_count('blue', 3)
-    #     histogram.add_count('fish', 4)
-    #     histogram.add_count('food', 5)
-    #     # Verify updated frequency count of all words
-    #     assert histogram.frequency('one') == 1
-    #     assert histogram.frequency('two') == 3
-    #     assert histogram.frequency('red') == 1
-    #     assert histogram.frequency('blue') == 4
-    #     assert histogram.frequency('fish') == 8
-    #     assert histogram.frequency('food') == 5
-    #     # Verify count of distinct word types
-    #     assert histogram.types == 6
-    #     # Verify total count of all word tokens
-    #     assert histogram.tokens == 8 + 14
+def test_add_count():
+    fish_words = ['one', 'fish', 'two', 'fish', 'red', 'fish', 'blue', 'fish']
+    
+    histogram = Dictogram(fish_words)
+    # Add more words to update frequency counts
+    histogram.add_count('two', 2)
+    histogram.add_count('blue', 3)
+    histogram.add_count('fish', 4)
+    histogram.add_count('food', 5)
+    # Verify updated frequency count of all words
+    assert histogram.frequency('one') == 1
+    assert histogram.frequency('two') == 3
+    assert histogram.frequency('red') == 1
+    assert histogram.frequency('blue') == 4
+    assert histogram.frequency('fish') == 8
+    assert histogram.frequency('food') == 5
+    # Verify count of distinct word types
+    assert histogram.types == 6
+    # Verify total count of all word tokens
+    assert histogram.tokens == 8 + 14
 
     # def test_tokens(self):
     #     histogram = Dictogram(self.fish_words)
