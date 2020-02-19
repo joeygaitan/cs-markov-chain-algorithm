@@ -9,16 +9,16 @@ class Histogram:
         self.Listogram = Listogram(self.words)
         self.Dictogram = Dictogram(self.words)
     
-    def listogram_samples(self):
+    def listogram_samples(self, count):
         string = ""
 
-        for _ in range(10):
+        for _ in range(count):
             string += " " + self.Listogram.sample()
         return string
 
-    def dictogram_samples(self):
+    def dictogram_samples(self,count):
         string = ""
         
-        for _ in range(10):
+        for _ in range(count):
             string += " " + self.Dictogram.sample()
         return string
