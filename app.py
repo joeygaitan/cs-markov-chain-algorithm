@@ -1,9 +1,15 @@
 from flask import request, url_for
 from flask_api import FlaskAPI, status, exceptions
 from flask_cors import CORS
+from algorithms.classes.histogram_class import Histogram
 
 app = FlaskAPI(__name__)
 CORS(app)
+
+histograms = {
+    0: Histogram.listogram_samples,
+    1: Histogram.dictogram_samples
+}
 
 notes = {
     0: 'do the shopping',
@@ -11,11 +17,7 @@ notes = {
     2: 'paint the door',
 }
 
-def note_repr(key):
-    return {
-        'url': request.host_url.rstrip('/') + url_for('notes_detail', key=key),
-        'text': notes[key]
-    }
+
 
 
 @app.route("/", methods=['GET'])
@@ -24,7 +26,7 @@ def notes_list():
     List or create notes.
     """
     # request.method == 'GET'
-    return [note_repr(idx) for idx in sorted(notes.keys())]
+    return [item[1] for item in sorted(histograms.items())]
 
 @app.route("/int:key", methods=['GET'])
 def one_note(key):
