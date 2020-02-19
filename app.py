@@ -26,7 +26,7 @@ def notes_list():
     List or create notes.
     """
     # request.method == 'GET'
-    return [item[1] for item in sorted(histograms.items())]
+    return [sentence for (index, sentence) in histograms.items()]
 
 @app.route("/int:key", methods=['GET'])
 def one_note(key):
