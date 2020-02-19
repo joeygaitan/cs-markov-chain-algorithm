@@ -52,13 +52,14 @@ class Listogram(list):
         """Return a word from this histogram, randomly sampled by weighting
         each word's probability of being chosen by its observed frequency."""
         # TODO: Randomly choose a word based on its frequency in this histogram
-        random_index = random.randint(0, sum(self) - 1)
-
+        random_index = random.randint(0, len(self) - 1)
         start = 0
         for element in self:
             end = start + element[1]
             if end >= random_index and start >= random_index:
+                print("here two")
                 return element[0]
             else:
+                print("here")
                 start = end
-        return "not found :/"
+        return
