@@ -56,10 +56,8 @@ class Listogram(list):
         start = 0
         for element in self:
             end = start + element[1]
-            if end >= random_index and start >= random_index:
-                print("here two")
+            if end >= random_index and start >= random_index: 
                 return element[0]
             else:
-                print("here")
                 start = end
         return
