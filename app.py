@@ -1,13 +1,20 @@
 from flask import request, url_for
 from flask_api import FlaskAPI, status, exceptions
 from flask_cors import CORS
-from algorithms.classes.histogram_class import Histogram
+# from algorithms.classes.histogram_class import Histogram
+from algorithms.classes.listogram import Listogram
+from algorithms.classes.dictogram import Dictogram
+import os
+import sys
 
 app = FlaskAPI(__name__)
 CORS(app)
 
-listo = Histogram.listogram_samples(10)
-dicto = Histogram.dictogram_samples(10)
+words = open('./text_files/words.txt','r')
+words = ''.join(words.readlines()).split()
+
+listo = Listogram(words).listogram_samples(10)
+dicto = Dictogram(words).dictogram_samples(10)
 
 histograms = {
     0: listo,

@@ -60,4 +60,10 @@ class Listogram(list):
                 return element[0]
             else:
                 start = end
-        return
+
+    def listogram_samples(self, count):
+        string = ""
+
+        for _ in range(count - 1):
+            string += " " + self.sample()
+        return string

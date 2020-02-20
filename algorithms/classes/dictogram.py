@@ -42,4 +42,10 @@ class Dictogram(dict):
                 return word
             else:
                 start = end
-        return
+
+    def dictogram_samples(self,count):
+        string = self.sample()
+        
+        for _ in range(count - 1):
+            string += " " + self.sample()
+        return string

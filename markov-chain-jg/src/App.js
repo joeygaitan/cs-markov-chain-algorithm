@@ -22,6 +22,7 @@ class App extends Component {
     })
     .then((myJson) => {
       console.log(myJson)
+      this.setState({quotes: [...myJson]})
     })
   }
 
@@ -29,7 +30,9 @@ class App extends Component {
      
     return (
       <div className='center-screen'>
-        <h1>hello friend</h1>
+        {this.state.quotes.map((element)=>{
+          return <h1>{element}</h1>
+        })}
       </div>
     );
   }
