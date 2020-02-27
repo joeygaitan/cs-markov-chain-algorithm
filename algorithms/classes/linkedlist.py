@@ -96,11 +96,15 @@ class LinkedList(object):
         # TODO: Check if node's data satisfies given quality function
         current = self.head
 
-        if self.head.data == quality:
+        if current.data == quality:
             return True
-        while(current):
-            
-
+        elif current.data == None:
+            return False
+        else:
+            while(current):
+                if current.data == quality:
+                    True
+            return False
 
     def delete(self, item):
         """Delete the given item from this linked list, or raise ValueError.
@@ -110,7 +114,20 @@ class LinkedList(object):
         # TODO: Update previous node to skip around node with matching data
         # TODO: Otherwise raise error to tell user that delete has failed
         # Hint: raise ValueError('Item not found: {}'.format(item))
-        pass
+        current = self.head
+        if current.data == item:
+            self.head = current.next
+            current = None
+        while (current):
+            if current.data == item:
+                break
+            prev = current
+            current.next
+
+        if current == None:
+            return
+        prev.next = current.next
+        current = None
 
 def test_linked_list():
     ll = LinkedList()

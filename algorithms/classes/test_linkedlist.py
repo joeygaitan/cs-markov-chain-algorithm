@@ -5,14 +5,14 @@ from linkedlist import LinkedList, Node
 
 ## node test
 
-def test_init(self):
+def node_test_init(self):
     data = 'ABC'
     node = Node(data)
     # Initializer should add instance properties
     assert node.data is data
     assert node.next is None
 
-def test_linking_nodes(self):
+def node_test_linking_nodes(self):
     node1 = Node('A')
     node2 = Node('B')
     node3 = Node('C')
