@@ -21,15 +21,6 @@ histograms = {
     1: dicto
 }
 
-# notes = {
-#     0: 'do the shopping',
-#     1: 'build the codez',
-#     2: 'paint the door',
-# }
-
-
-
-
 @app.route("/", methods=['GET'])
 def notes_list():
     """

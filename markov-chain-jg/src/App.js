@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { BrowserRouter,Switch,Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css'
 
 class App extends Component {
@@ -7,7 +7,8 @@ class App extends Component {
     super(props)
 
     this.state = {
-      quotes:[]
+      quotes:[],
+      stuff: 0
     }
   }
 
@@ -21,13 +22,11 @@ class App extends Component {
       return response.json();
     })
     .then((myJson) => {
-      console.log(myJson)
       this.setState({quotes: [...myJson]})
     })
   }
 
   render() {
-     
     return (
       <div className='center-screen'>
         {this.state.quotes.map((element)=>{

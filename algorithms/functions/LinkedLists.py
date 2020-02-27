@@ -29,9 +29,8 @@ class linkedList:
         if 1 < self.size < index:
             print("Out of scope")
             return   
-        while(current.next != None):
+        while(current):
             count += 1
-            print(count,index,current.data)
             if count == index:
                 print(current.data)
             current = current.next 
@@ -70,10 +69,10 @@ ll.addLast(1000)
 
 print(ll.size)
 
-ll.displayOne(1)
+# ll.displayOne(1)
 ll.displayOne(5)
 
-# ll.displayAll()
+ll.displayAll()
 
 end_time = t.time()
 
