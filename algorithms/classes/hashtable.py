@@ -1,6 +1,6 @@
 #!python
 
-from linkedlist import LinkedList
+from linkedlist import LinkedList, Node
 
 
 class HashTable(object):

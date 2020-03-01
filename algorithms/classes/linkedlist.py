@@ -58,12 +58,12 @@ class LinkedList(object):
         # TODO: Loop through all nodes and count one for each
         current = self.head
         count = 0
-        if current.data == None:
+        if current == None:
             return 0
-        while(current.data != None):
+        while(current):
             count += 1
             current = current.next
-        print(count)
+        return count
 
 
     def append(self, item):
@@ -79,6 +79,7 @@ class LinkedList(object):
             while(current.next != None):
                 current = current.next
             current.next = newItem
+            self.tail = newItem
 
 
     def prepend(self, item):
@@ -117,7 +118,7 @@ class LinkedList(object):
         current = self.head
         if current.data == item:
             self.head = current.next
-            current = None
+            current = self.head
         while (current):
             if current.data == item:
                 break
