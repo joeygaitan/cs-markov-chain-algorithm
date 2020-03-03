@@ -19,10 +19,12 @@ class LinkedList(object):
         """Initialize this linked list and append the given items, if any."""
         self.head = None  # First node
         self.tail = None  # Last node
+        self.list = []
         # Append given items
         if items is not None:
             for item in items:
                 self.append(item)
+                self.list.append(item)
 
     def __str__(self):
         """Return a formatted string representation of this linked list."""
@@ -123,6 +125,8 @@ class LinkedList(object):
         current = self.head
         if current.data == item:
             self.head = current.next
+            if current.next == None:
+                self.tail = None
             return
         while (current):
             if current.data == item:
@@ -131,9 +135,23 @@ class LinkedList(object):
             current = current.next
 
         if current == None:
-            return
+            if item in self.list:
+                raise ValueError('Item not found: {}'.format(item))
+                
+
         prev.next = current.next
+        self.tail = prev
         current = None
+        
+
+    def print_list(self):
+        current = self.head
+        while(current):
+            print(current.data)
+            current = current.next
+        print(f"head: {self.head}, tail: {self.tail}")
+        print(self.list)
+        
 
 def test_linked_list():
     ll = LinkedList()
@@ -162,6 +180,11 @@ def test_linked_list():
         print('tail: {}'.format(ll.tail))
         print('length: {}'.format(ll.length()))
 
+ll = LinkedList(['A','B','C'])
+ll.delete('A')
+ll.delete('C')
+ll.print_list()
 
-if __name__ == '__main__':
-    test_linked_list()
+
+# if __name__ == '__main__':
+#     test_linked_list()
