@@ -122,6 +122,9 @@ class LinkedList(object):
         # TODO: Update previous node to skip around node with matching data
         # TODO: Otherwise raise error to tell user that delete has failed
         # Hint: raise ValueError('Item not found: {}'.format(item))
+        if self.head == None:
+            raise ValueError(f'Item not found: {item}')
+            return
         current = self.head
         if current.data == item:
             self.head = current.next
@@ -136,8 +139,11 @@ class LinkedList(object):
 
         if current == None:
             if item in self.list:
-                raise ValueError('Item not found: {}'.format(item))
-                
+                raise ValueError(f'{item} no longer in list')
+                return 'Item no longer in list'
+            else:
+                raise ValueError(f'{item} not found in list')
+                return 'Item not in list'
 
         prev.next = current.next
         self.tail = prev
@@ -180,10 +186,12 @@ def test_linked_list():
         print('tail: {}'.format(ll.tail))
         print('length: {}'.format(ll.length()))
 
-ll = LinkedList(['A','B','C'])
+ll = LinkedList(['A','B','C','D','E'])
 ll.delete('A')
 ll.delete('C')
+ll.delete('E')
 ll.print_list()
+print(ll.tail.data)
 
 
 # if __name__ == '__main__':
