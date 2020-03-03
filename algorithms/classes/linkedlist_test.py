@@ -111,18 +111,18 @@ class LinkedListTest(unittest.TestCase):
         ll.delete('B')
         assert ll.length() == 0
 
-    # def test_append(self):
-    #     ll = LinkedList()
-    #     # Append should always update tail node
-    #     ll.append('A')
-    #     assert ll.head.data == 'A'  # New head
-    #     assert ll.tail.data == 'A'  # New tail
-    #     ll.append('B')
-    #     assert ll.head.data == 'A'  # Unchanged
-    #     assert ll.tail.data == 'B'  # New tail
-    #     ll.append('C')
-    #     assert ll.head.data == 'A'  # Unchanged
-    #     assert ll.tail.data == 'C'  # New tail
+    def test_append(self):
+        ll = LinkedList()
+        # Append should always update tail node
+        ll.append('A')
+        assert ll.head.data == 'A'  # New head
+        assert ll.tail.data == 'A'  # New tail
+        ll.append('B')
+        assert ll.head.data == 'A'  # Unchanged
+        assert ll.tail.data == 'B'  # New tail
+        ll.append('C')
+        assert ll.head.data == 'A'  # Unchanged
+        assert ll.tail.data == 'C'  # New tail
 
     # def test_prepend(self):
     #     ll = LinkedList()

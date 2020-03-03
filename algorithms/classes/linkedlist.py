@@ -118,12 +118,12 @@ class LinkedList(object):
         current = self.head
         if current.data == item:
             self.head = current.next
-            current = self.head
+            return
         while (current):
             if current.data == item:
                 break
             prev = current
-            current.next
+            current = current.next
 
         if current == None:
             return

@@ -51,10 +51,11 @@ class MarkovChain:
                 break
             else: #if not last word, add a space in the end
                 sentence += current_word + " "
+
                 #else:
                     #continue
             index += 1
-        print(sentence,"ghnfgusoinoinsdoigngs")
+        print(sentence)
 
 
     def print_chain(self):
