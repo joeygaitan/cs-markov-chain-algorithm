@@ -75,6 +75,7 @@ class LinkedList(object):
         newItem = Node(item)
         if self.head == None:
             self.head = newItem
+            self.tail = newItem
         else:
             while(current.next != None):
                 current = current.next
@@ -87,7 +88,12 @@ class LinkedList(object):
         TODO: Running time: O(???) Why and under what conditions?"""
         # TODO: Create new node to hold given item
         # TODO: Prepend node before head, if it exists
-        self.head = Node(item, self.head)
+        current = self.head
+        if current == None:
+            self.head = Node(item, self.head)
+            self.tail = Node(item)
+        else:
+            self.head = Node(item, self.head)
 
     def find(self, quality):
         """Return an item from this linked list satisfying the given quality.
@@ -98,14 +104,13 @@ class LinkedList(object):
         current = self.head
 
         if current.data == quality:
-            return True
-        elif current.data == None:
-            return False
+            return current.data
         else:
             while(current):
                 if current.data == quality:
-                    True
-            return False
+                    return current.data
+                current = current.next
+            return None
 
     def delete(self, item):
         """Delete the given item from this linked list, or raise ValueError.
