@@ -186,13 +186,13 @@ def test_linked_list():
         print('tail: {}'.format(ll.tail))
         print('length: {}'.format(ll.length()))
 
-ll = LinkedList(['A','B','C','D','E'])
-ll.delete('A')
-ll.delete('C')
-ll.delete('E')
-ll.print_list()
-print(ll.tail.data)
+# ll = LinkedList(['A','B','C','D','E'])
+# ll.delete('A')
+# ll.delete('C')
+# ll.delete('E')
+# ll.print_list()
+# print(ll.tail.data)
 
 
-# if __name__ == '__main__':
-#     test_linked_list()
+if __name__ == '__main__':
+    test_linked_list()
