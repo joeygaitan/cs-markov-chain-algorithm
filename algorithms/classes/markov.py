@@ -1,4 +1,5 @@
 from dictogram import Dictogram
+import random
 
 class MarkovChain:
 
@@ -31,7 +32,30 @@ class MarkovChain:
 
     def walk(self, num_words):
         #TODO: generate a sentence num_words long using the markov chain
-        pass
+        first_word = random.choice(list(self.markov_chain.keys()))
+        print("FIRST WORD IS", first_word)
+        sentence = first_word + " "
+        index = 0
+        current_word = first_word
+        while (index < num_words):
+            
+            #for word, dictionary in self.markov_chain.items():
+                #if current_word == word:
+            current_word_dictogram = self.markov_chain[current_word]
+            print("From word =", current_word, "DICTOGRAM I AM SAMPLING IS", current_word_dictogram)
+            random_weighted_word =  current_word_dictogram.sample() #get the random_weighted_word
+            print("Sample returned is", random_weighted_word)
+            current_word = random_weighted_word #assign random_word as the current_word
+            if index == num_words - 1: #if this is the last word, add "."
+                sentence += current_word + "."
+                break
+            else: #if not last word, add a space in the end
+                sentence += current_word + " "
+                #else:
+                    #continue
+            index += 1
+        print(sentence,"ghnfgusoinoinsdoigngs")
+
 
     def print_chain(self):
         # dictionary of dictionaries
@@ -42,4 +66,4 @@ class MarkovChain:
 
 markov_chain = MarkovChain(["one", "fish", "two", "fish", "red", "fish", "blue", "fish"])
 markov_chain.print_chain()
-# print(markov_chain.walk(10))
+print(markov_chain.walk(10))

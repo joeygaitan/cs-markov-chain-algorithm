@@ -5,6 +5,9 @@ class Dictogram(dict):
         self.types = 0  # Count of distinct word types in this histogram
         self.tokens = 0  # Total count of all word tokens in this histogram
         # Count words in given list, if any
+
+        
+
         super().__init__()
         if word_list is not None:
             for word in word_list:
