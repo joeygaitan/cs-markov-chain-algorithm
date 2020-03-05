@@ -3,7 +3,9 @@ from flask_api import FlaskAPI, status, exceptions
 from flask_cors import CORS
 # from algorithms.classes.histogram_class import Histogram
 from algorithms.classes.listogram import Listogram
-from algorithms.classes.dictogram import Dictogram
+# from algorithms.classes.dictogram import Dictogram
+
+from markov import MarkovChain
 import os
 import sys
 
@@ -13,22 +15,28 @@ CORS(app)
 words = open('./text_files/words.txt','r')
 words = ''.join(words.readlines()).split()
 
-listo = Listogram(words).listogram_samples(10)
-dicto = Dictogram(words).dictogram_samples(10)
+# listo = Listogram(words).listogram_samples(10)
+# dicto = Dictogram(words).dictogram_samples(10)
 
-histograms = {
-    0: listo,
-    1: dicto
-}
+# histograms = {
+#     0: listo,
+#     1: dicto
+# }
+
+sentences = MarkovChain(words)
+sentence = sentences.walk(10).split()
+
 
 @app.route("/", methods=['GET'])
 def notes_list():
     """
     List or create notes.
     """
-    # request.method == 'GET'
+    request.method == 'GET'
     sentences = [sentence for (index, sentence) in histograms.items()]
-    return sentences
+    
+
+    return sentence
 
 # @app.route("/int:key", methods=['GET'])
 # def one_note(key):

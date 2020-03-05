@@ -39,6 +39,7 @@ class HashTable(object):
         TODO: Running time: O(???) Why and under what conditions?"""
         # TODO: Loop through all buckets
         # TODO: Collect all values in each bucket
+        pass
 
     def items(self):
         """Return a list of all items (key-value pairs) in this hash table.
@@ -54,12 +55,14 @@ class HashTable(object):
         TODO: Running time: O(???) Why and under what conditions?"""
         # TODO: Loop through all buckets
         # TODO: Count number of key-value entries in each bucket
+        pass
 
     def contains(self, key):
         """Return True if this hash table contains the given key, or False.
         TODO: Running time: O(???) Why and under what conditions?"""
         # TODO: Find bucket where given key belongs
         # TODO: Check if key-value entry exists in bucket
+        pass
 
     def get(self, key):
         """Return the value associated with the given key, or raise KeyError.
@@ -69,6 +72,7 @@ class HashTable(object):
         # TODO: If found, return value associated with given key
         # TODO: Otherwise, raise error to tell user get failed
         # Hint: raise KeyError('Key not found: {}'.format(key))
+        pass
 
     def set(self, key, value):
         """Insert or update the given key with its associated value.
@@ -77,6 +81,8 @@ class HashTable(object):
         # TODO: Check if key-value entry exists in bucket
         # TODO: If found, update value associated with given key
         # TODO: Otherwise, insert given key-value entry into bucket
+        
+        
 
     def delete(self, key):
         """Delete the given key from this hash table, or raise KeyError.
@@ -86,7 +92,7 @@ class HashTable(object):
         # TODO: If found, delete entry associated with given key
         # TODO: Otherwise, raise error to tell user delete failed
         # Hint: raise KeyError('Key not found: {}'.format(key))
-
+        pass
 
 def test_hash_table():
     ht = HashTable()

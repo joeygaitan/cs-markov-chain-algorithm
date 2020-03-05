@@ -1,4 +1,7 @@
+import os
 from dictogram import Dictogram
+# Dictogram.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 import random
 
 class MarkovChain:
@@ -55,7 +58,7 @@ class MarkovChain:
                 #else:
                     #continue
             index += 1
-        print(sentence)
+        return sentence
 
 
     def print_chain(self):
@@ -65,6 +68,6 @@ class MarkovChain:
 
 
 
-markov_chain = MarkovChain(["one", "fish", "two", "fish", "red", "fish", "blue", "fish"])
-markov_chain.print_chain()
-print(markov_chain.walk(10))
+# markov_chain = MarkovChain(["one", "fish", "two", "fish", "red", "fish", "blue", "fish"])
+# markov_chain.print_chain()
+# print(markov_chain.walk(10))
