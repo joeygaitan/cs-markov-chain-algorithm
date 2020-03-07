@@ -18,7 +18,8 @@ class App extends Component {
 
   getQuotes = async () => {
     //'https://markov-chain-j-g.herokuapp.com/'
-    return fetch("http://127.0.0.1:5000/")
+    //local testing 'http://127.0.0.1:5000/'
+    return fetch('https://markov-chain-j-g.herokuapp.com/')
     .then((response) => {
       return response.json();
     })
