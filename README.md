@@ -35,3 +35,15 @@ npm install
 ```
 npm start
 ```
+
+### tips for future self
+
+1. to find flask app running in the background. Second item is the id
+```
+ps -fA | grep python
+```
+
+2. then kill it
+```
+kill id
+```

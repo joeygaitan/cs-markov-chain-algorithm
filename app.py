@@ -4,7 +4,8 @@ from flask_cors import CORS
 # from algorithms.classes.histogram_class import Histogram
 from algorithms.classes.listogram import Listogram
 # from algorithms.classes.dictogram import Dictogram
-
+# import os
+# Dictogram.path.append(os.path.dirname(os.path.abspath(__file__)))
 from markov import MarkovChain
 import os
 import sys
@@ -23,10 +24,9 @@ words = ''.join(words.readlines()).split()
 #     1: dicto
 # }
 
-sentence = MarkovChain(words)
-sentenceArray = sentence.walk(10).split()
+MC = MarkovChain(words)
 
-print(sentenceArray)
+
 
 @app.route("/", methods=['GET'])
 def notes_list():
@@ -34,9 +34,9 @@ def notes_list():
     List or create notes.
     """
     request.method == 'GET'
-    # sentences = [sentence for (index, sentence) in histograms.items()]
+    sentences = MC.walk(10).split()
 
-    return sentenceArray
+    return sentences
 
 # @app.route("/int:key", methods=['GET'])
 # def one_note(key):
@@ -44,7 +44,7 @@ def notes_list():
 #     # request.method == 'GET'
 #     if key not in notes:
 #         raise exceptions.NotFound()
-#     return note_repr(key) 
+#     return note_repr(key)
 
 # @app.route("/int:key", methods=['POST'])
 # def add_note(key):
