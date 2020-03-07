@@ -19,7 +19,7 @@ pip3 install -r requirements.txt
 ```
 
 ```
-python run 
+export FLASK_ENV=development; flask run
 ```
 
 ## Now how to run the React development locally...
