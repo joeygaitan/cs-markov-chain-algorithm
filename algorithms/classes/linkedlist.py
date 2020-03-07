@@ -148,6 +148,18 @@ class LinkedList(object):
         prev.next = current.next
         self.tail = prev
         current = None
+
+    def edit_list(self,data):
+        """
+        This is used in the case of a hash table...
+        """
+        current = self.head
+        while(current):
+            if current.data == data:
+                self.delete(current.data[0])
+            else:
+                self.append(data)
+
         
 
     def print_list(self):

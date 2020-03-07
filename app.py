@@ -23,9 +23,10 @@ words = ''.join(words.readlines()).split()
 #     1: dicto
 # }
 
-sentences = MarkovChain(words)
-sentence = sentences.walk(10).split()
+sentence = MarkovChain(words)
+sentenceArray = sentence.walk(10).split()
 
+print(sentenceArray)
 
 @app.route("/", methods=['GET'])
 def notes_list():
@@ -33,10 +34,9 @@ def notes_list():
     List or create notes.
     """
     request.method == 'GET'
-    sentences = [sentence for (index, sentence) in histograms.items()]
-    
+    # sentences = [sentence for (index, sentence) in histograms.items()]
 
-    return sentence
+    return sentenceArray
 
 # @app.route("/int:key", methods=['GET'])
 # def one_note(key):
@@ -44,7 +44,7 @@ def notes_list():
 #     # request.method == 'GET'
 #     if key not in notes:
 #         raise exceptions.NotFound()
-#     return note_repr(key)
+#     return note_repr(key) 
 
 # @app.route("/int:key", methods=['POST'])
 # def add_note(key):
