@@ -1,3 +1,6 @@
+## url
+markov-chain-j-g.surge.sh
+
 Flask api hosted by heroku, and React frontend hosted with surge
 
 ## Markov Chain Algorithm Site
@@ -9,7 +12,7 @@ Flask api hosted by heroku, and React frontend hosted with surge
 virtualenv -p /path/to/python venv
 ```
 
-3. Then yupe this
+3. Then type this
 ```
 source venv/bin/activate
 ```

@@ -1,11 +1,7 @@
 from flask import request, url_for
 from flask_api import FlaskAPI, status, exceptions
 from flask_cors import CORS
-# from algorithms.classes.histogram_class import Histogram
 from algorithms.classes.listogram import Listogram
-# from algorithms.classes.dictogram import Dictogram
-# import os
-# Dictogram.path.append(os.path.dirname(os.path.abspath(__file__)))
 from markov import MarkovChain
 import os
 import sys
@@ -34,7 +30,7 @@ def notes_list():
     List or create notes.
     """
     request.method == 'GET'
-    sentences = MC.walk(10).split()
+    sentences = MC.walk(10)
 
     return sentences
 
