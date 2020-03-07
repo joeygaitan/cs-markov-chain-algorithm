@@ -124,15 +124,15 @@ class LinkedList(object):
         # Hint: raise ValueError('Item not found: {}'.format(item))
         if self.head == None:
             raise ValueError(f'Item not found: {item}')
-            return
         current = self.head
-        if current.data == item:
+        prev = current
+        if current.data == item or current.data[0] == item:
             self.head = current.next
             if current.next == None:
                 self.tail = None
             return
         while (current):
-            if current.data == item:
+            if current.data == item or current.data[0] == item:
                 break
             prev = current
             current = current.next
@@ -149,17 +149,15 @@ class LinkedList(object):
         self.tail = prev
         current = None
 
-    def edit_list(self,data):
+    def edit_list(self,new_item):
         """
         This is used in the case of a hash table...
         """
         current = self.head
         while(current):
-            if current.data == data:
-                self.delete(current.data[0])
-            else:
-                self.append(data)
-
+            if current.data[0] == new_item[0] and current.data[1] == new_item[1]:
+                current.data = new_item
+                
         
 
     def print_list(self):

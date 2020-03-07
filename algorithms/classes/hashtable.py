@@ -92,7 +92,15 @@ class HashTable(object):
         # TODO: If found, return value associated with given key
         # TODO: Otherwise, raise error to tell user get failed
         # Hint: raise KeyError('Key not found: {}'.format(key))
-        pass
+        bucket_linkedlist = self.buckets[hash(key) % len(self.buckets)]
+        current = bucket_linkedlist.head
+        while(current):
+            if current.data[0] == key:
+                return current.data[1]
+            current = current.next
+        
+        raise KeyError('Key not found: {}'.format(key))
+        
 
     def set(self, key, value):
         """Insert or update the given key with its associated value.
@@ -103,12 +111,14 @@ class HashTable(object):
         # TODO: Otherwise, insert given key-value entry into bucket
 
         bucket_linkedlist = self.buckets[hash(key) % len(self.buckets)] #finds linked list bucket 
-        bucket_item = bucket_linkedlist.find(lambda bucket_item: bucket_item[0] == key) #gets the item from the bucket if it exists
-        new_item = (key,value)
-        if bucket_item != None:
-            bucket_linkedlist.edit_list(new_item)
-        else:
-            bucket_linkedlist.append(new_item)
+        new_item = (key,value) #make a tuple to store the information in
+        current = bucket_linkedlist.head # linked list head so you loop through the list
+        while(current): #loop condition
+            if current.data[0] == new_item[0]: #checks if item is in linkedlist
+                current.data = new_item #updates the item with the 
+                return
+            current = current.next
+        bucket_linkedlist.append(new_item)
         
 
     def delete(self, key):
@@ -119,7 +129,16 @@ class HashTable(object):
         # TODO: If found, delete entry associated with given key
         # TODO: Otherwise, raise error to tell user delete failed
         # Hint: raise KeyError('Key not found: {}'.format(key))
-        pass
+        bucket_linkedlist = self.buckets[hash(key) % len(self.buckets)] #find the index
+        current = bucket_linkedlist.head #get the head so you can search through the linked list
+        while(current): #loop through the linked list
+            if current.data[0] == key: #if found then delete key and return to stop loop
+                bucket_linkedlist.delete(key)
+                return
+            #otherwise it will keep looping to the end where it will through the keyError
+            current = current.next
+        raise KeyError(f'Key not found: {key}')
+        
 
 def test_hash_table():
     ht = HashTable()
@@ -153,4 +172,14 @@ def test_hash_table():
 
 
 if __name__ == '__main__':
+    # test_hash_table()
+    ht = HashTable()
+    ht.set('I', 1)
+    ht.set('V', 5)
+    ht.set('X', 10)
+    print(ht.length())
+    ht.delete('I')
+    ht.delete('X')
+    print(ht.values)
+    print(ht.length())
     test_hash_table()
