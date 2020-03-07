@@ -5,22 +5,22 @@ Flask api hosted by heroku, and React frontend hosted with surge
 
 ## Markov Chain Algorithm Site
 
-1. To start the python application please setup a python virtual environment like this
+#### To start the python application please setup a python virtual environment like this. 
 
-2. Type this into your terminal
+1. Type this into your terminal
 ```
 virtualenv -p /path/to/python venv
 ```
 
-3. Then type this
+2. Then type this
 ```
 source venv/bin/activate
 ```
-
+3. then this
 ```
 pip3 install -r requirements.txt
 ```
-
+4. Then the final step to getting it running
 ```
 export FLASK_ENV=development; flask run
 ```
